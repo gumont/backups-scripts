@@ -1,0 +1,7 @@
+#!/bin/bash
+mount -t ntfs-3g /dev/sdc3 /mnt/hdext
+rm -fr /mnt/hd2/backup_retention_1/*
+rm -fr /mnt/hdext/backup_retention_1/*
+cp -fpR /mnt/hd2/backup/* /mnt/hd2/backup_retention_1/
+cp -fpR /mnt/hd2/backup/* /mnt/hdext/backup_retention_1/
+umount /mnt/hdext
