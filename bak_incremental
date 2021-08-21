@@ -8,6 +8,7 @@
 #
 # ------------------------------------------------------------------------------------ #
 # WHAT IT DOES?
+# This script can be called by the normal way using "./" or scheduled to execute through Cron.
 # You have to change the variables to point to your External Device.
 #
 # CONFIGURATION?
@@ -73,7 +74,7 @@ fi
 # -------------------------------- FUNCTIONS ----------------------------------------- #
 backup () {
   # Find the files with "find" command and copy only the differences (-u parameter from "cp" command)
-  find "$SOURCE_DIR" -name "*.mp3" \
+  find "$SOURCE_DIR" -name "*.bak" \
                      -exec cp -vru {} "$DESTINATION_DIR" \; 1>> $LOG_FILE 2>&1
   # Worked fine? Umount.
   [ "$?" = "0" ] && {
