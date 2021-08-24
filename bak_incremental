@@ -39,7 +39,7 @@ DEVICE="/dev/sdb1" # External Device (check with "fdisk -l")
 SOURCE_DIR="/dir1/file1" # The directory where the backups files are stored
 DESTINATION_DIR="/dir_backups/" # Mountpoint to your External Device
 LOG_FILE="/backups/scripts/"bak_incremental_$(date --iso-8601=ns).log"" # The location from the log file
-
+DATE='date --iso-8601=seconds'
 # Don't Change
 MOUNT_FILE="/proc/mounts"
 NULL_DEVICE="1> /dev/null 2>&1"
@@ -86,7 +86,7 @@ backup () {
 
 preparelogfile () {
   # Insert a simple header to the log file with the timestamp
-  echo "----------[ $(date --iso-8601=seconds) ]----------" >> $LOG_FILE
+  echo "----------[ $DATE ]----------" >> $LOG_FILE
 }
 
 main () {
